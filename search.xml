@@ -33,7 +33,7 @@
   </entry>
   <entry>
     <title>nodejs学习</title>
-    <url>/2021/06/16/%E2%80%9Cnodejs%E5%AD%A6%E4%B9%A0%E2%80%9D/</url>
+    <url>/2021/06/16/nodejs%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="nodejs-核心模块-http-的学习"><a href="#nodejs-核心模块-http-的学习" class="headerlink" title="nodejs 核心模块 http 的学习"></a>nodejs 核心模块 http 的学习</h1><ol>
 <li><p>首先是在新建的文件中新建一个app.js 文件，(名字自己起)；然后引入 一个 http 模块。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br></pre></td></tr></table></figure></li>
