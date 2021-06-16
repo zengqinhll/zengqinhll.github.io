@@ -13,4 +13,37 @@
 </ol>
 ]]></content>
   </entry>
+  <entry>
+    <title>如何将博客部署到Github上</title>
+    <url>/2021/06/05/%E5%A6%82%E4%BD%95%E5%B0%86%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0Github%E4%B8%8A/</url>
+    <content><![CDATA[<ol>
+<li>首先需要安装 node、npm</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>React的学习</title>
+    <url>/2021/06/06/React%E7%9A%84%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><ol>
+<li>首先电脑得配置环境，先安装 node.js、<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">node -v   // 在命令窗口中查看版本是否安装成功</span><br><span class="line">npm -v    // 查看版本号</span><br></pre></td></tr></table></figure></li>
+<li>然后是安装 React 的脚手架，等待安装完成<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i -g create-react-app  // i是install的简写</span><br></pre></td></tr></table></figure></li>
+<li>，在你想要创建项目的文件夹下进入命令窗口，然后创建 React 项目<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create-react-app project  // 1. project 是你的项目名字</span><br><span class="line">npm start                 // 2. 启动项目</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>nodejs学习</title>
+    <url>/2021/06/16/%E2%80%9Cnodejs%E5%AD%A6%E4%B9%A0%E2%80%9D/</url>
+    <content><![CDATA[<h1 id="nodejs-核心模块-http-的学习"><a href="#nodejs-核心模块-http-的学习" class="headerlink" title="nodejs 核心模块 http 的学习"></a>nodejs 核心模块 http 的学习</h1><ol>
+<li><p>首先是在新建的文件中新建一个app.js 文件，(名字自己起)；然后引入 一个 http 模块。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br></pre></td></tr></table></figure></li>
+<li><p>创建一个 web 服务器，提供网页服务</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">  const server = http.createServer((request,response)=&gt;&#123;</span><br><span class="line">    console.log(request.url)        // 获取的请求的 url 地址</span><br><span class="line">    console.log(request.method);    // 获取请求的方式</span><br><span class="line">    if (request.url == &#x27;/member&#x27;) &#123;</span><br><span class="line">      response.write(&#x27;huiyuan&#x27;);  </span><br><span class="line">    &#125;else if (request.url == &#x27;/login&#x27;) &#123;</span><br><span class="line">      response.write(&#x27;success login&#x27;);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">      response.write(&#x27;404 not found&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    // response.write(&#x27;nihao&#x27;);        // 代表是服务器传给浏览器的相应，其中 write 可以给浏览器的相应，write 可以调用多次</span><br><span class="line"></span><br><span class="line">    response.end();                 // 结束，无论地址栏输入任何的 url，相应的内容都是一样的。</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>定义端口号</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const port = 8080;</span><br></pre></td></tr></table></figure></li>
+<li><p>服务器监听的 端口号<br>server.listen(port,()=&gt;{<br>‘port is running at’ + port<br>})</p>
+</li>
+</ol>
+]]></content>
+  </entry>
 </search>
