@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="仗键走天涯">
+  <meta name="description" content="nodejs核心模块 http">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nodejs的学习">
+<meta property="og:title" content="nodejs学习">
 <meta property="og:url" content="http://example.com/2021/06/16/nodejs%E7%9A%84%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="曾勤的博客">
-<meta property="og:description" content="仗键走天涯">
+<meta property="og:description" content="nodejs核心模块 http">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-16T13:56:02.000Z">
-<meta property="article:modified_time" content="2021-06-16T13:56:02.189Z">
+<meta property="article:published_time" content="2021-06-16T13:33:40.000Z">
+<meta property="article:modified_time" content="2021-06-16T13:56:59.171Z">
 <meta property="article:author" content="曾勤">
 <meta name="twitter:card" content="summary">
 
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>nodejs的学习 | 曾勤的博客</title>
+  <title>nodejs学习 | 曾勤的博客</title>
   
 
 
@@ -188,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          nodejs的学习
+          nodejs学习
         </h1>
 
         <div class="post-meta">
@@ -197,11 +197,13 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-06-16 21:56:02" itemprop="dateCreated datePublished" datetime="2021-06-16T21:56:02+08:00">2021-06-16</time>
+              <time title="创建时间：2021-06-16 21:33:40 / 修改时间：21:56:59" itemprop="dateCreated datePublished" datetime="2021-06-16T21:33:40+08:00">2021-06-16</time>
             </span>
 
           
+            <div class="post-description">nodejs核心模块 http</div>
 
         </div>
       </header>
@@ -212,7 +214,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="nodejs-核心模块-http-的学习"><a href="#nodejs-核心模块-http-的学习" class="headerlink" title="nodejs 核心模块 http 的学习"></a>nodejs 核心模块 http 的学习</h1><ol>
+<li><p>首先是在新建的文件中新建一个app.js 文件，(名字自己起)；然后引入 一个 http 模块。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const http = require(&#x27;http&#x27;);</span><br></pre></td></tr></table></figure></li>
+<li><p>创建一个 web 服务器，提供网页服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  const server = http.createServer((request,response)=&gt;&#123;</span><br><span class="line">    console.log(request.url)        // 获取的请求的 url 地址</span><br><span class="line">    console.log(request.method);    // 获取请求的方式</span><br><span class="line">    if (request.url == &#x27;/member&#x27;) &#123;</span><br><span class="line">      response.write(&#x27;huiyuan&#x27;);  </span><br><span class="line">    &#125;else if (request.url == &#x27;/login&#x27;) &#123;</span><br><span class="line">      response.write(&#x27;success login&#x27;);</span><br><span class="line">    &#125;else &#123;</span><br><span class="line">      response.write(&#x27;404 not found&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    // response.write(&#x27;nihao&#x27;);        // 代表是服务器传给浏览器的相应，其中 write 可以给浏览器的相应，write 可以调用多次</span><br><span class="line"></span><br><span class="line">    response.end();                 // 结束，无论地址栏输入任何的 url，相应的内容都是一样的。</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>定义端口号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const port = 8080;</span><br></pre></td></tr></table></figure></li>
+<li><p>服务器监听的 端口号<br>server.listen(port,()=&gt;{<br>‘port is running at’ + port<br>})</p>
+</li>
+</ol>
+
     </div>
 
     
@@ -289,6 +301,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nodejs-%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9D%97-http-%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">nodejs 核心模块 http 的学习</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
